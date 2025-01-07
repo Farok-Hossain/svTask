@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Sidebar</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        display: flex;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      .sidebar {
+        width: 250px;
+        background-color: #333;
+        color: white;
+        padding: 15px;
+        position: fixed;
+        left: -280px; /* Initially hidden */
+        top: 0;
+        height: 100%;
+        transition: left 0.3s ease;
+      }
+
+      .sidebar.active {
+        left: 0; /* Visible when active */
+      }
+
+      .sidebar ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .sidebar ul li {
+        margin: 15px 0;
+      }
+
+      .sidebar ul li a {
+        color: white;
+        text-decoration: none;
+        display: block;
+      }
+
+      .sidebar ul li a:hover {
+        background-color: #575757;
+        padding: 5px;
+        border-radius: 4px;
+      }
+
+      .content {
+        margin-left: 0;
+        flex-grow: 1;
+        padding: 20px;
+        transition: margin-left 0.3s ease;
+      }
+
+      .content.active {
+        margin-left: 250px; /* Adjusted when the sidebar is active */
+      }
+
+      .toggle-btn {
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      .toggle-btn:focus {
+        outline: none;
+      }
+
+      @media (min-width: 1024px) {
+        .sidebar {
+          left: 0; /* Always visible on larger screens */
+          position: static;
+        }
+        .content {
+          margin-left: 250px;
+        }
+        .toggle-btn {
+          display: none; /* Hide toggle button on larger screens */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <aside id="sidebar" class="sidebar">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </aside>
+      <main class="content">
+        <button id="toggle-btn" class="toggle-btn">☰</button>
+        <h1>Responsive Sidebar Example</h1>
+        <p>This is the main content area.</p>
+      </main>
+    </div>
+    <script src="script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggleBtn = document.getElementById("toggle-btn");
+        const sidebar = document.getElementById("sidebar");
+        const content = document.querySelector(".content");
+
+        toggleBtn.addEventListener("click", () => {
+          sidebar.classList.toggle("active");
+          content.classList.toggle("active");
+        });
+      });
+    </script>
+  </body>
+</html>

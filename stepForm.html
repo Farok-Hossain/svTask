@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Step Form</title>
+
+    <!-- Select  -->
+     <!-- Select2 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+  <!-- Google map  -->
+  <link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+  
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+  <!-- Select2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+      .form-container {
+        width: 975px;
+        max-width: 1000px;
+        background: #ffffff;
+        padding: 20px 30px;
+        border-radius: 8px;
+        height: 300px;
+      }
+
+      .form-group {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        margin-left: 20px;
+        gap: 10px;
+      }
+
+      .countryH{
+        height: 57px;
+      }
+
+      .text-color{
+        color: #0f2a5c;
+      }
+      .form-group div {
+        flex: 1;
+        margin-right: 15px;
+      }
+
+      .form-group div:last-child {
+        margin-right: 0;
+      }
+
+      .zipcode{
+        width: 445px;
+        height: 35px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #1f2937;
+      }
+
+      select,
+      input {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        color: #4a5568;
+        background: #f8f9fa;
+        border: 1px solid #e2e8f0;
+        border-radius: 5px;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+
+      select:hover,
+      input:hover {
+        border-color: #a0aec0;
+      }
+
+      select:focus,
+      input:focus {
+        border-color: #16a085;
+      }
+
+      .location2 {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        background: #f8f9fa;
+        padding: 10px;
+        border: 1px solid #e2e8f0;
+        border-radius: 5px;
+        margin-left: 20px;
+        height: 35px;
+        
+      }
+
+      .location2 img {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+      }
+
+      .location2 span {
+        color: #4a5568;
+        font-size: 14px;
+      }
+
+      .map-size{
+        height: 100px;
+        width: 100px;
+      }
+    </style>
+
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <style>
+
+.container {
+        position: relative; /* Enables positioning of select inside input */
+        width: 426px;
+        max-width: 436px;
+        height: 42px;
+      }
+      .container input {
+        width: 426px;
+        height: 42px;
+        padding: 8px;
+        font-size: 20px;
+        padding-left: 20px;
+        border: 1px solid #fff;
+        border-radius: 10px;
+        background: #f5f6f7;
+      }
+      .container select {
+        position: absolute;
+        background: #f5f6f7;
+        width: 130px; /* Adjust the width of the select dropdown */
+        height: 40px;
+        font-size: 26px;
+      }
+
+      .select2 {
+        margin-left: 320px;
+        background: #f5f6f7;
+        margin-top: -70px;
+        height: 39px;
+      }
+
+
+      #map {
+        height: 343px;
+        width: 946px;
+        border-radius: 10px;
+        margin-top: 60px;
+        margin-left: 50px;
+      }
+      .page {
+        display: none; /* Hide all pages initially */
+      }
+      .active {
+        display: block; /* Show the active page */
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+        <!-- Personal Information  -->
+      <section id="information" class="pInfo page active">
+        <div class="pInfo-dv">
+          <img class="pInfo-img" src="/assets/images/infoImage.png" alt="" />
+        </div>
+        <div class="pInfo-d">
+          <div class="pInfo-d2">
+            <div class="pInfo-d3">
+              <p class="pInfo-p">Step 1</p>
+              <div class="pInfo-d4">
+                <img
+                  class="pInfo-img2"
+                  src="./assets/images/Icon4.png"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="pInfo-d6"></div>
+            <div class="pInfo-d3">
+              <p class="pInfo-p">Step 2</p>
+              <div class="pInfo-d5">
+                <img
+                  class="pInfo-img2"
+                  src="./assets/images/Icon5.png"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="pInfo-d7"></div>
+            <div class="pInfo-d3">
+              <p class="pInfo-p">Step 3</p>
+              <div class="pInfo-d5">
+                <img
+                  class="pInfo-img2"
+                  src="./assets/images/Icon5.png"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="pInfo-d8">
+            <div class="">
+              <h2 class="pInfo-h">Personal Information</h2>
+            </div>
+            <div class="pInfo-d9">
+              <div class="pInfo-d10">
+                <p class="pInfo-p2">First Name</p>
+                <input type="text" required  placeholder="John" class="pInfo-input" />
+             
+              </div>
+              <div class="pInfo-d10">
+                <p class="pInfo-p2">Last Name</p>
+                <input type="text" required  placeholder="Doe" class="pInfo-input" />
+                
+              </div>
+              <div class="pInfo-d10">
+                <p class="pInfo-p2">Email</p>
+                <input type="text" required  placeholder="companyname@gmail.com" class="pInfo-input" />
+               
+              </div>
+              <div class="pInfo-d10">
+                <p class="pInfo-p2">Phone</p>
+                <input type="text" required placeholder="+44 117 2345678" class="pInfo-input" />
+               
+              </div>
+            </div>
+            <div class="pInfo-d16">
+              <a class="pInfo-a">
+                <div class="pInfo-d12">
+                  <a class="pInfo-a" href="index.html">
+                    <button class="pInfo-d13">
+                        <img
+                          class="pInfo-img3"
+                          src="/assets/images/left.png"
+                          alt=""
+                        />
+                        <p class="pInfo-p3">Back</p>
+                      </button>
+                  </a>
+                </div>
+              </a>
+
+              <a class="pInfo-a">
+                <div class="pInfo-d14">
+                  <button onclick="showPage('location')" class="pInfo-d15">
+                    <p class="pInfo-p4">Next</p>
+                    <img
+                      class="pInfo-img4"
+                      src="/assets/images/right.png"
+                      alt=""
+                    />
+                  </button>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Location starts-->
+      <section id="location" class="location page">
+        <div class="pInfo-dv">
+          <img class="location-img" src="/assets/images/infoImage.png" alt="" />
+        </div>
+
+        <div class="lc-main-d">
+          <div class="lc-main-d2">
+            <div class="pInfo-d3">
+              <p class="pInfo-p">Step 1</p>
+              <div class="pInfo-d4">
+                <img
+                  class="pInfo-img2"
+                  src="./assets/images/Icon4.png"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="lc-d1"></div>
+            <div class="pInfo-d3">
+              <p class="pInfo-p">Step 2</p>
+              <div class="pInfo-d4">
+                <img
+                  class="pInfo-img2"
+                  src="./assets/images/Icon4.png"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="lc-d2"></div>
+            <div class="pInfo-d3">
+              <p class="pInfo-p">Step 3</p>
+              <div class="pInfo-d5">
+                <img
+                  class="pInfo-img2"
+                  src="./assets/images/Icon5.png"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="lc-d3">
+            <h2 class="location-h">Location</h2>
+            <div class="form-container">
+              <div class="form-group">
+                <div>
+                  <label for="country" class="text-color">Country</label>
+                  <select id="country" class="countryH">
+                    <option value="" class="text-color">Select country</option>
+                    <option value="us">United States</option>
+                    <option value="uk">United Kingdom</option>
+                    <option value="in">India</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="city" class="text-color">City</label>
+                  <select id="city" class="countryH">
+                    <option value="">Select City</option>
+                    <option value="ny">New York</option>
+                    <option value="ldn">London</option>
+                    <option value="del">Delhi</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <div >
+                  <label for="zipcode" class="text-color">Zip Code</label>
+                  <input class="zipcode " type="text" id="zipcode" placeholder="Zip/Postal Code" />
+                </div>
+                <div>
+                  <label for="region" class="text-color">Region</label>
+                  <select id="region" class="countryH">
+                    <option value="">Region</option>
+                    <option value="na">North America</option>
+                    <option value="eu">Europe</option>
+                    <option value="as">Asia</option>
+                  </select>
+                </div>
+              </div>
+              <div class="location2">
+                <img  class="map-size"
+                  src="https://img.icons8.com/material-outlined/24/000000/place-marker.png"
+                  alt="Location Icon"
+                />
+                <span>Set Location</span>
+              </div>
+            </div>
+
+            <div class="lc-d8">
+              <p class="lc-p">Choose area</p>
+              <div class="lc-d9">
+                <div class="lc-d10">
+                  <input type="text" required  placeholder="Use Current Location" class="lc-sm2" />
+                  <!-- <small class="lc-sm2">Use Current Location</small> -->
+                </div>
+                <div>
+                  <img
+                    class="lc-img3"
+                    src="./assets/images/location2.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- <div> -->
+            <!-- <div id="map"></div> -->
+             <div class="map-size"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116833.83187894154!2d90.33728812288355!3d23.780975728197344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka!5e0!3m2!1sen!2sbd!4v1735039248236!5m2!1sen!2sbd" width="950" height="350" style="margin-top: 80px;
+             margin-left: 50px; border-radius: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+              <!-- <img class="lc-img4" src="./assets/images/Map Image.png" alt="" /> -->
+            <!-- </div> -->
+            <div class="location-d2">
+              <a class="pInfo-a">
+                <div class="pInfo-d12">
+                  <button onclick="showPage('information')" class="pInfo-d13">
+                    <img
+                      class="pInfo-img3"
+                      src="/assets/images/left.png"
+                      alt=""
+                    />
+                    <p class="pInfo-p3">Back</p>
+                  </button>
+                </div>
+              </a>
+
+              <a class="pInfo-a">
+                <div class="pInfo-d14">
+                  <button onclick="showPage('business')" class="pInfo-d15">
+                    <p class="pInfo-p4">Next</p>
+                    <img
+                      class="pInfo-img4"
+                      src="/assets/images/right.png"
+                      alt=""
+                    />
+                  </button>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- location ends here  -->
+
+      <!-- business starts here  -->
+      <section id="business" class="business page">
+        <div class="pInfo-dv">
+          <img class="location-img" src="/assets/images/infoImage.png" alt="" />
+        </div>
+
+        <div class="bus-d">
+          <div class="bus-dv">
+            <div class="pInfo-d3">
+              <p class="pInfo-p">Step 1</p>
+              <div class="pInfo-d4">
+                <img
+                  class="pInfo-img2"
+                  src="./assets/images/Icon4.png"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="lc-d1"></div>
+            <div class="pInfo-d3">
+              <p class="pInfo-p">Step 2</p>
+              <div class="pInfo-d4">
+                <img
+                  class="pInfo-img2"
+                  src="./assets/images/Icon4.png"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="lc-d1"></div>
+            <div class="pInfo-d3">
+              <p class="pInfo-p">Step 3</p>
+              <div class="pInfo-d4">
+                <img
+                  class="pInfo-img2"
+                  src="./assets/images/Icon4.png"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="bus-d2">
+            <h2 class="bus-h">Business Details</h2>
+
+            <div class="bus-d5">
+              <div class="bus-d3">
+                <div class="bus-d6">
+                  <div class="bus-d14">
+                    <p class="bus-p2">Company Name</p>
+                    <div class="lc-d6">
+                      <input type="text" required placeholder="CQD" class="lc-input" />
+                    </div>
+                  </div>
+                  <div class="pInfo-d10">
+                    <p class="bus-p2">Type</p>
+                    <div class="lc-d7">
+                      <input type="text" required  placeholder="Company type" class="lc-input" />
+                      <img class="lc-img2" src="./assets/images/down.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bus-d6">
+                  <div class="pInfo-d10">
+                    <p class="pInfo-p2">Industry</p>
+                    <div class="lc-d6">
+                      <input type="text" required placeholder="Industry name" class="lc-input" />
+                    </div>
+                  </div>
+                  <div class="pInfo-d10">
+                    <p class="pInfo-p2">Number of Employee</p>
+                    <div class="bus-d16">
+                      <input type="text" required  placeholder="0-100" class="lc-input" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bus-d7">
+                  <div class="pInfo-d10">
+                    <p class="pInfo-p2">Website</p>
+                    <div class="lc-d7">
+                      <input type="text" required  placeholder="Link here" class="lc-input" />
+                    </div>
+                  </div>
+                  <div class="pInfo-d10">
+                    <p class="pInfo-p2">Address</p>
+                    <div class="bus-d16">
+                      <input type="text" required  placeholder="Address here" class="lc-input" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="lc-d4">
+                  <p class="lc-p2">Business Details</p>
+                  <div class="bus-d4">
+                    <textarea name="" required placeholder="Type here...." class="bus-input" id=""></textarea>
+                    <!-- <input type="text"  placeholder="Type here...." class="bus-input" /> -->
+                  </div>
+                </div>
+              </div>
+
+              <p class="bus-p">
+                ----------------------------------------------------------------------------------------------------------
+              </p>
+
+              <div class="bus-d8">
+                 <div class="bus-d9">
+                    <p class="bus-p3">Choose Service</p>
+
+                    <div class="bus-d17">
+                      <input type="text" required  placeholder="Select Service" class="bus-input3 bus-sm3" />
+                      <img class="bus-img2" src="./assets/images/down.png" alt="" />
+                    </div>
+                  </div>
+
+                 <div class="lc-d4">
+                  <p class="lc-p2">Service Details</p>
+                  <div class="bus-d4">
+                    <textarea name="" placeholder="Type here...." class="bus-input" id=""></textarea>
+                  </div>
+                </div>
+                <div class="bus-d11">
+                   <input class="checkbox" type="checkbox">
+                  <p class="bus-p4">I want to share my subscription</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bus-d13">
+              <a class="pInfo-a">
+                <div class="pInfo-d12">
+                  <button onclick="showPage('location')" class="pInfo-d13">
+                    <img
+                      class="pInfo-img3"
+                      src="/assets/images/left.png"
+                      alt=""
+                    />
+                    <p class="pInfo-p3">Back</p>
+                  </button>
+                </div>
+              </a>
+
+              <a class="pInfo-a">
+                <div onclick="showPage('cleanService')" class="pInfo-d14">
+                  <button class="pInfo-d15">
+                    <p class="pInfo-p4">Next</p>
+                    <img
+                      class="pInfo-img4"
+                      src="/assets/images/right.png"
+                      alt=""
+                    />
+                  </button>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- business ends here -->
+
+      <!-- cleaning service page starts   -->
+      <section id="cleanService" class="cls-sec page">
+        <div class="cls-d">
+          <img class="cls-img" src="/assets/images/infoImage.png" alt="" />
+        </div>
+        <div class="cls-d1">
+          <h2 class="cls-h">Applied for CQD Cleaning Service</h2>
+          <div class="cls-d2">
+            <div class="cls-d3">
+              <h3 class="cls-h2">Packages Name:</h3>
+              <button class="cls-button">Bronze</button>
+            </div>
+            <div class="cls-d5"></div>
+            <div class="cls-d4">
+              <h3 class="cls-h2">Name:</h3>
+              <input type="text" placeholder="John Doe" class="cls-p" />
+              <img
+                class="cls-img2"
+                src="./assets/images/editFrame.png"
+                alt=""
+              />
+            </div>
+            <div class="cls-d5"></div>
+            <div class="cls-d4">
+              <h3 class="cls-h2">Email:</h3>
+              <input type="text" placeholder="companyname@gmail.com" class="cls-p" />
+              <img
+                class="cls-img2"
+                src="./assets/images/editFrame.png"
+                alt=""
+              />
+            </div>
+            <div class="cls-d5"></div>
+            <div class="cls-d4">
+              <h3 class="cls-h2">Phone:</h3>
+              <input type="text" placeholder="+44 117 2345678" class="cls-p" />
+              <img
+                class="cls-img2"
+                src="./assets/images/editFrame.png"
+                alt=""
+              />
+            </div>
+            <div class="cls-d5"></div>
+            <div class="cls-d4">
+              <h3 class="cls-h2">Country:</h3>
+              <input type="text" placeholder="England" class="cls-p" />
+              <img
+                class="cls-img2"
+                src="./assets/images/editFrame.png"
+                alt=""
+              />
+            </div>
+            <div class="cls-d5"></div>
+            <div class="cls-d4">
+              <h3 class="cls-h2">City:</h3>
+              <input type="text" placeholder="London" class="cls-p" />
+              <img
+                class="cls-img2"
+                src="./assets/images/editFrame.png"
+                alt=""
+              />
+            </div>
+            <div class="cls-d5"></div>
+            <div class="cls-d4">
+              <h3 class="cls-h2">Zip Code:</h3>
+              <input type="text" placeholder="HP10 0AA" class="cls-p" />
+              <img
+                class="cls-img2"
+                src="./assets/images/editFrame.png"
+                alt=""
+              />
+            </div>
+            <div class="cls-d5"></div>
+            <div class="cls-d4">
+              <h3 class="cls-h2">Region:</h3>
+              <input type="text" placeholder="Buckinghamshire" class="cls-p" />
+              <img
+                class="cls-img2"
+                src="./assets/images/editFrame.png"
+                alt=""
+              />
+            </div>
+            <div class="cls-d5"></div>
+            <div class="cls-d4">
+              <h3 class="cls-h2">Address:</h3>
+              <input type="text" placeholder="Country Hall, Walton Street, Aylesburyk, Buckinghamshire, HP20 1YH." class="cls-p" />
+              <img
+                class="cls-img2"
+                src="./assets/images/editFrame.png"
+                alt=""
+              />
+            </div>
+            <div class="cls-d5"></div>
+            <div class="cls-d4">
+              <h3 class="cls-h2">Company Name:</h3>
+              <input type="text" placeholder="Softvence Agency" class="cls-p" />
+              <img
+                class="cls-img2"
+                src="./assets/images/editFrame.png"
+                alt=""
+              />
+            </div>
+            <div class="cls-d5"></div>
+            <div class="cls-d4">
+              <h3 class="cls-h2">Industry:</h3>
+              <input type="text" placeholder="IT" class="cls-p" />
+              <img
+                class="cls-img2"
+                src="./assets/images/editFrame.png"
+                alt=""
+              />
+            </div>
+            <div class="cls-d5"></div>
+            <div class="cls-d4">
+              <h3 class="cls-h2">Number of Employee:</h3>
+              <input type="text" placeholder="50-100" class="cls-p" />
+              <img
+                class="cls-img2"
+                src="./assets/images/editFrame.png"
+                alt=""
+              />
+            </div>
+            <div class="cls-d5"></div>
+            <div class="cls-d4">
+              <h3 class="cls-h2">Website:</h3>
+              <input type="text" placeholder="https//link here" class="cls-p" />
+              <img
+                class="cls-img2"
+                src="./assets/images/editFrame.png"
+                alt=""
+              />
+            </div>
+            <div class="cls-d5"></div>
+            <div class="cls-d4">
+              <h3 class="cls-h2">Company Address:</h3>
+              <input type="text" placeholder="Country Hall, Walton Street, Aylesburyk, Buckinghamshire, HP20 1YH." class="cls-p" />
+              <img
+                class="cls-img2"
+                src="./assets/images/editFrame.png"
+                alt=""
+              />
+            </div>
+            <div class="cls-d5"></div>
+            <div class="cls-d4">
+              <h3 class="cls-h2">Business Details:</h3>
+              <input type="text" placeholder="Company details here" class="cls-p" />
+              <img
+                class="cls-img2"
+                src="./assets/images/editFrame.png"
+                alt=""
+              />
+            </div>
+            <div class="cls-d5"></div>
+            <div class="cls-d4">
+              <h3 class="cls-h2">Choose Services:</h3>
+              <input type="text" placeholder="Office Cleaning" class="cls-p" />
+              <img
+                class="cls-img2"
+                src="./assets/images/editFrame.png"
+                alt=""
+              />
+            </div>
+            <div class="cls-d5"></div>
+            <div class="cls-d4">
+              <h3 class="cls-h2">Service Details:</h3>
+              <input type="text" placeholder="Service details here" class="cls-p" />
+              <img
+                class="cls-img2"
+                src="./assets/images/editFrame.png"
+                alt=""
+              />
+            </div>
+            <div class="cls-d5"></div>
+
+            <div class="cls-d6">
+              <img class="cls-img3" src="/assets/images/Frame31.png" alt="" />
+              <p class="cls-p2">Your subscription will be shared</p>
+            </div>
+          </div>
+
+          <div class="cls-d7">
+            <a class="pInfo-a">
+              <div class="pInfo-d14">
+                <button type="submit" onclick="showPage('cleanService2')" class="cls-d8">
+                  <p class="pInfo-p4">Submit</p>
+                  <img
+                    class="pInfo-img4"
+                    src="/assets/images/right.png"
+                    alt=""
+                  />
+                </button>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- clean service2 page starts here -->
+      <section id="cleanService2" class="cls-sec2 page">
+        <div class="cls2-d4">
+            <img class="cls2-img" src="/assets/images/infoImage.png" alt="">
+        </div>
+
+        <div class="cls2-dv">
+            <div class="cls2-d2">
+                <img class="cls2-img3" src="./assets/images/round-check.png" alt="">
+            </div>
+            <div>
+                <p class="cls2-p">Thank You!</p>
+                <small class="cls2-sm">Your subscription package has been Submitted successfully. You will be contacted as soon as we find a match for you. Thank you for choosing us!</small>
+            </div>
+        </div>
+
+        <div class="cls2-d1">
+
+            <div class="cls2-d">
+              <h2 class="cls2-h">Applied for CQD Cleaning Service</h2>
+
+             <div class="cls2-d3">
+                 <div class="cls2-d5">
+                    <img class="cls2-img2" src="./assets/images/print.png" alt="">
+                    <p class="cls2-p2">Print</p>
+                 </div>
+                 <div class="cls2-d6">
+                    <img class="cls2-img4" src="./assets/images/download.png" alt="">
+                    <p class="cls2-p2">Download</p>
+                 </div>
+             </div>
+            </div>
+
+            <div class="cls-d2">
+                <div class="cls-d3">
+                    <h3 class="cls-h2">Packages Name:</h3>
+                    <button class="cls-button">Bronze</button>
+                </div>
+                <div class="cls-d5"></div>
+                <div class="cls-d4">
+                    <h3 class="cls2-h2">Name:</h3>
+                    <p class="cls-p">John Doe</p>
+                </div>
+                <div class="cls-d5"></div>
+                <div class="cls-d4">
+                    <h3 class="cls2-h2">Email:</h3>
+                    <p class="cls-p">companyname@gmail.com</p>
+                </div>
+                <div class="cls-d5"></div>
+                <div class="cls-d4">
+                    <h3 class="cls2-h2">Phone:</h3>
+                    <p class="cls-p">+44 117 2345678</p>
+                </div>
+                <div class="cls-d5"></div>
+                <div class="cls-d4">
+                    <h3 class="cls2-h2">Country:</h3>
+                    <p class="cls-p">England</p>
+                </div>
+                <div class="cls-d5"></div>
+                <div class="cls-d4">
+                    <h3 class="cls2-h2">City:</h3>
+                    <p class="cls-p">London</p>
+                </div>
+                <div class="cls-d5"></div>
+                <div class="cls-d4">
+                    <h3 class="cls2-h2">Zip Code:</h3>
+                    <p class="cls-p">HP10 0AA</p>
+                </div>
+                <div class="cls-d5"></div>
+                <div class="cls-d4">
+                    <h3 class="cls2-h2">Region:</h3>
+                    <p class="cls-p">Buckinghamshire</p>
+                </div>
+                <div class="cls-d5"></div>
+                <div class="cls-d4">
+                    <h3 class="cls2-h2">Address:</h3>
+                    <p class="cls-p">Country Hall, Walton Street, Aylesburyk, Buckinghamshire, HP20 1YH.</p>
+                </div>
+                <div class="cls-d5"></div>
+                <div class="cls-d4">
+                    <h3 class="cls2-h2">Company Name:</h3>
+                    <p class="cls-p">Softvence Agency</p>
+                </div>
+                <div class="cls-d5"></div>
+                <div class="cls-d4">
+                    <h3 class="cls2-h2">Industry:</h3>
+                    <p class="cls-p">IT</p>
+                </div>
+                <div class="cls-d5"></div>
+                <div class="cls-d4">
+                    <h3 class="cls2-h2">Number of Employee:</h3>
+                    <p class="cls-p">50-100</p>
+                </div>
+                <div class="cls-d5"></div>
+                <div class="cls-d4">
+                    <h3 class="cls2-h2">Website:</h3>
+                    <p class="cls-p">https//link here</p>
+                </div>
+                <div class="cls-d5"></div>
+                <div class="cls-d4">
+                    <h3 class="cls2-h2">Company Address:</h3>
+                    <p class="cls-p">Country Hall, Walton Street, Aylesburyk, Buckinghamshire, HP20 1YH.</p>
+                </div>
+                <div class="cls-d5"></div>
+                <div class="cls-d4">
+                    <h3 class="cls2-h2">Business Details:</h3>
+                    <p class="cls-p">Company details here</p>
+                </div>
+                <div class="cls-d5"></div>
+                <div class="cls-d4">
+                    <h3 class="cls2-h2">Choose Services:</h3>
+                    <p class="cls-p">Office Cleaning</p>
+                </div>
+                <div class="cls-d5"></div>
+                <div class="cls-d4">
+                    <h3 class="cls2-h2">Service Details:</h3>
+                    <p class="cls-p">Service details here</p>
+                </div>
+                <div class="cls-d5"></div>
+                
+                <div class="cls-d6">
+                    <img class="cls-img3" src="/assets/images/Frame31.png" alt="">
+                    <p class="cls-p2">Your subscription will be shared</p>
+                </div>
+                
+            </div>
+    </section>
+    </main>
+    <script src="/assets/js/main.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  </body>
+</html>

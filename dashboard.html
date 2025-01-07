@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+   
+    <link rel="stylesheet" href="./assets/css/dashboard.css" />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+    </style>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        font-family: "Poppins";
+      }
+
+      body::-webkit-scrollbar{
+        display: none;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .active {
+        display: block;
+      }
+
+      /* upload image  */
+
+      .upload-button {
+        display: inline-block;
+        color: #02b71f;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #fff;
+        border: 1px solid #02b71f;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-top: 10px;
+      }
+
+      .upload-button:hover {
+        background-color: #02b71f;
+      }
+
+      .upload-img-text{
+        color: #02b71f;
+        font-weight: 400;
+        font-size: 16px;
+      }
+
+      .upload-img-text:hover {
+        color: white;
+      }
+     
+
+      
+      .upload-button input[type="file"] {
+        display: none;
+      }
+
+      .image-preview {
+        margin-top: 20px;
+        width: 50px;
+        height: 50px;
+        border: 2px solid #ccc;
+        padding: 10px;
+        border-radius: 100%;
+        background-color: #fff;
+        margin-left: 30px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .image-preview img {
+        width: 86px;
+        height: 86px;
+        object-fit: cover;
+        border-radius: 64px;
+    position: absolute;
+    top: -15px;
+    left: -10px;
+    bottom: 0px;
+    right: 0px;
+        
+      }
+
+      /* logout css  */
+
+      .alert-button {
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        background-color: #0f2a5c;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dashboard">
+      <div id="sidebar" class="sidebar">
+        <!-- Logo -->
+        <div class="logo" onclick="showContent('item1')">
+          <img src="./assets/images/img1.png" alt="Logo" />
+          <div class="X-button" id="x-button">X</div>
+        </div>
+
+        <!-- Packages Section -->
+        <div
+          class="menu-item "
+          id="packages-toggle"
+          onclick="showContent('item1')"
+        >
+          <div class="menu-item2 color-button green">
+            <img class="item-img1" src="./assets/images/dimg1.png" alt="" />
+            <span class="item-text">Packages</span>
+            <img
+              class="item-img2"
+              id="package-icon"
+              src="./assets/images/dimg2.png"
+              alt=""
+            />
+          </div>
+          
+        </div>
+        <div class="submenu" id="packages-menu">
+          <div class="submenu-item color-button2 purple" onclick="showContent('item1')">
+            <img src="./assets/images/bronze.png" alt="">
+            <span class="bronze">Bronze</span>
+            <div class="submenu-item2">
+              <p class="submenu-item2-text">10</p>
+            </div>
+          </div>
+          <div class="submenu-item color-button2" onclick="showContent('item2')">
+            <img src="./assets/images/silver.png" alt="">
+            <span class="bronze">Silver</span>
+            <div class="submenu-item2">
+              <p class="submenu-item2-text">10</p>
+            </div>
+          </div>
+          <div class="submenu-item color-button2" onclick="showContent('item3')">
+            <img src="./assets/images/gold.png" alt="">
+            <span class="bronze">Gold</span>
+            <div class="submenu-item2">
+              <p class="submenu-item2-text">10</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profile Section -->
+        <div class="profile-menu color-button" id="profile profile-toggle" onclick="showContent('item4')">
+          <img
+            class="profile-img"
+            src="./assets/images/profileImg.png"
+            alt=""
+          />
+          <p class="profile-text">Profile</p>
+        </div>
+
+        <!-- Notification Section -->
+        <div class="notification-menu color-button" id="notification" onclick="showContent('item5')">
+          <img
+            class="notification-img"
+            src="./assets/images/notificationImg.png"
+            alt=""
+          />
+          <p class="notification-text">Notification</p>
+        </div>
+
+        <div class="setting-menu color-button" id="setting" onclick="showContent('item6')">
+          <img class="setting-logo" src="./assets/images/setting-img.png" alt="">
+          <p class="setting-text">Settings</p>
+        </div>
+
+        <div class="package-menu color-button" id="package" onclick="showContent('item7')">
+          <img class="package-logo" src="./assets/images/dimg1.png" alt="">
+          <p class="package-info">Package Info</p>
+        </div>
+
+        <!-- Logout -->
+        <div class="logout">
+          <button class="alert-button" id="alertButton">Logout</button>
+        </div>
+      </div>
+      <button id="res-toggle-btn" class="res-toggle-btn">☰</button>
+      <div class="dashboard-top-menu" id="dashboard-top-menu-id">
+        
+        <div class="dashboard-menu">
+          <div>
+            <p class="dashboard-text">Dashboard</p>
+          </div>
+          <div class="dashboard-avatar-d">
+            <img class="bell-img" id="profileHeaderImage" onclick="showContent('item5')" src="./assets/images/bell-pic.png" alt="" />
+
+            <div class="avatar-menu" onclick="showContent('item4')">
+              <img class="avatar" src="./assets/images/admin.png" alt="" />
+            </div>
+            <div onclick="showContent('item4')" class="adimn-ceo">
+              <p class="admin-text">superadmin</p>
+              <p class="ceo-text">CEO</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-bottom-menu hidden active" id="item1">
+          <div class="button-menu">
+            <p class="package-text">Package users for Bronze Page</p>
+            <button class="button">
+              <p class="button-text">Matching Users</p>
+              <svg
+                class="button-svg"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="25"
+                viewBox="0 0 24 25"
+                fill="none"
+              >
+                <path
+                  d="M5 12.5H19M19 12.5L13 18.5M19 12.5L13 6.5"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+          <table>
+            <thead class="table-head">
+              <tr class="table-header">
+                <th class="table-name">Package</th>
+                <th class="table-email">Email</th>
+                <th class="table-service">Service Name</th>
+                <th class="table-location">Location</th>
+                <th class="table-date">Date</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr class="border-line">
+                <td class="td-img">
+                  <img
+                    class="td-img2"
+                    src="./assets/images/bronze.png"
+                    alt=""
+                  />
+                </td>
+                <td class="email-text2">rasel4babu87@gmail.com</td>
+                <td class="email-text2">CQC Cleaning Services</td>
+                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                <td class="email-text2">5/1-25</td>
+              </tr>
+              <tr class="border-line">
+                <td class="td-img">
+                  <img
+                    class="td-img2"
+                    src="./assets/images/bronze.png"
+                    alt=""
+                  />
+                </td>
+                <td class="email-text2">doral95678@matmayer.com</td>
+                <td class="email-text2">CQC Cleaning Services</td>
+                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                <td class="email-text2">5/1-25</td>
+              </tr>
+              <tr class="border-line">
+                <td class="td-img">
+                  <img
+                    class="td-img2"
+                    src="./assets/images/bronze.png"
+                    alt=""
+                  />
+                </td>
+                <td class="email-text2">solaimansiam93@gmail.com</td>
+                <td class="email-text2">CQC Cleaning Services</td>
+                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                <td class="email-text2">5/1-25</td>
+              </tr>
+              <tr class="border-line">
+                <td class="td-img">
+                  <img
+                    class="td-img2"
+                    src="./assets/images/bronze.png"
+                    alt=""
+                  />
+                </td>
+                <td class="email-text2">admin@admin.com</td>
+                <td class="email-text2">CQC Cleaning Services</td>
+                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                <td class="email-text2">5/1-25</td>
+              </tr>
+              <tr class="border-line">
+                <td class="td-img">
+                  <img
+                    class="td-img2"
+                    src="./assets/images/bronze.png"
+                    alt=""
+                  />
+                </td>
+                <td class="email-text2">raselbabu87@gmail.com</td>
+                <td class="email-text2">CQC Cleaning Services</td>
+                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                <td class="email-text2">5/1-25</td>
+              </tr>
+              <tr class="border-line">
+                <td class="td-img">
+                  <img
+                    class="td-img2"
+                    src="./assets/images/bronze.png"
+                    alt=""
+                  />
+                </td>
+                <td class="email-text2">john@gmail.com</td>
+                <td class="email-text2">CQC Cleaning Services</td>
+                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                <td class="email-text2">5/1-25</td>
+              </tr>
+              <tr class="border-line">
+                <td class="td-img">
+                  <img
+                    class="td-img2"
+                    src="./assets/images/bronze.png"
+                    alt=""
+                  />
+                </td>
+                <td class="email-text2">miller@gmail.com</td>
+                <td class="email-text2">CQC Cleaning Services</td>
+                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                <td class="email-text2">5/1-25</td>
+              </tr>
+              <tr class="border-line">
+                <td class="td-img">
+                  <img
+                    class="td-img2"
+                    src="./assets/images/bronze.png"
+                    alt=""
+                  />
+                </td>
+                <td class="email-text2">zack@gmail.com</td>
+                <td class="email-text2">CQC Cleaning Services</td>
+                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                <td class="email-text2">5/1-25</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="dashboard-bottom-menu hidden" id="item2">
+          <div class="button-menu">
+            <p class="package-text">Package users for Silver Page</p>
+            <button class="silver-button">
+              <p class="silver-button-text">Matching Users</p>
+              <svg
+                class="silver-button-svg"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="25"
+                viewBox="0 0 24 25"
+                fill="none"
+              >
+                <path
+                  d="M5 12.5H19M19 12.5L13 18.5M19 12.5L13 6.5"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+          <table>
+            <thead class="table-head">
+              <tr class="table-header">
+                <th class="table-name">Package</th>
+                <th class="table-email">Email</th>
+                <th class="table-service">Service Name</th>
+                <th class="table-location">Location</th>
+                <th class="table-date">Date</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr class="border-line">
+                <td class="td-img">
+                  <img
+                    class="td-img2"
+                    src="./assets/images/silver.png"
+                    alt=""
+                  />
+                </td>
+                <td class="email-text2">sazyk@mailinator.com</td>
+                <td class="email-text2">CQC Cleaning Services</td>
+                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                <td class="email-text2">5/1-25</td>
+              </tr>
+              <tr class="border-line">
+                <td class="td-img">
+                  <img
+                    class="td-img2"
+                    src="./assets/images/silver.png"
+                    alt=""
+                  />
+                </td>
+                <td class="email-text2">floydmile@gmail.com</td>
+                <td class="email-text2">CQC Cleaning Services</td>
+                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                <td class="email-text2">5/1-25</td>
+              </tr>
+              <tr class="border-line">
+                <td class="td-img">
+                  <img
+                    class="td-img2"
+                    src="./assets/images/silver.png"
+                    alt=""
+                  />
+                </td>
+                <td class="email-text2">tanehot126@matmayer.com</td>
+                <td class="email-text2">CQC Cleaning Services</td>
+                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                <td class="email-text2">5/1-25</td>
+              </tr>
+              <tr class="border-line">
+                <td class="td-img">
+                  <img
+                    class="td-img2"
+                    src="./assets/images/silver.png"
+                    alt=""
+                  />
+                </td>
+                <td class="email-text2">tozomuzod@mailinator.com</td>
+                <td class="email-text2">CQC Cleaning Services</td>
+                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                <td class="email-text2">5/1-25</td>
+              </tr>
+              <tr class="border-line">
+                <td class="td-img">
+                  <img
+                    class="td-img2"
+                    src="./assets/images/silver.png"
+                    alt=""
+                  />
+                </td>
+                <td class="email-text2">hokusif@mailinator.com</td>
+                <td class="email-text2">CQC Cleaning Services</td>
+                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                <td class="email-text2">5/1-25</td>
+              </tr>
+              <tr class="border-line">
+                <td class="td-img">
+                  <img
+                    class="td-img2"
+                    src="./assets/images/silver.png"
+                    alt=""
+                  />
+                </td>
+                <td class="email-text2">xuxeva@mailinator.com</td>
+                <td class="email-text2">CQC Cleaning Services</td>
+                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                <td class="email-text2">5/1-25</td>
+              </tr>
+              <tr class="border-line">
+                <td class="td-img">
+                  <img
+                    class="td-img2"
+                    src="./assets/images/silver.png"
+                    alt=""
+                  />
+                </td>
+                <td class="email-text2">rael4ab4u67@gmail.com</td>
+                <td class="email-text2">CQC Cleaning Services</td>
+                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                <td class="email-text2">5/1-25</td>
+              </tr>
+              <tr class="border-line">
+                <td class="td-img">
+                  <img
+                    class="td-img2"
+                    src="./assets/images/silver.png"
+                    alt=""
+                  />
+                </td>
+                <td class="email-text2">easdfasdfeadsf@gmail.com</td>
+                <td class="email-text2">CQC Cleaning Services</td>
+                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                <td class="email-text2">5/1-25</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="dashboard-bottom-menu hidden" id="item3">
+          <div class="button-menu">
+            <p class="package-text">Package users for Gold Page</p>
+            <button class="gold-button">
+              <p class="gold-button-text">Matching Users</p>
+              <svg
+                class="gold-button-svg"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="25"
+                viewBox="0 0 24 25"
+                fill="none"
+              >
+                <path
+                  d="M5 12.5H19M19 12.5L13 18.5M19 12.5L13 6.5"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+          <table>
+            <thead class="table-head">
+              <tr class="table-header">
+                <th class="table-name">Package</th>
+                <th class="table-email">Email</th>
+                <th class="table-service">Service Name</th>
+                <th class="table-location">Location</th>
+                <th class="table-date">Date</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr class="border-line">
+                <td class="td-img">
+                  <img
+                    class="td-img2"
+                    src="./assets/images/gold.png"
+                    alt=""
+                  />
+                </td>
+                <td class="email-text2">zalot@mailinator.com</td>
+                <td class="email-text2">CQC Cleaning Services</td>
+                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                <td class="email-text2">5/1-25</td>
+              </tr>
+              <tr class="border-line">
+                <td class="td-img">
+                  <img
+                    class="td-img2"
+                    src="./assets/images/gold.png"
+                    alt=""
+                  />
+                </td>
+                <td class="email-text2">quxevomucy@mailinator.com</td>
+                <td class="email-text2">CQC Cleaning Services</td>
+                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                <td class="email-text2">5/1-25</td>
+              </tr>
+              <tr class="border-line">
+                <td class="td-img">
+                  <img
+                    class="td-img2"
+                    src="./assets/images/gold.png"
+                    alt=""
+                  />
+                </td>
+                <td class="email-text2">raelbabiu67@gmail.com</td>
+                <td class="email-text2">CQC Cleaning Services</td>
+                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                <td class="email-text2">5/1-25</td>
+              </tr>
+              <tr class="border-line">
+                <td class="td-img">
+                  <img
+                    class="td-img2"
+                    src="./assets/images/gold.png"
+                    alt=""
+                  />
+                </td>
+                <td class="email-text2">raselbabu67@gmail.com</td>
+                <td class="email-text2">CQC Cleaning Services</td>
+                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                <td class="email-text2">5/1-25</td>
+              </tr>
+              <tr class="border-line">
+                <td class="td-img">
+                  <img
+                    class="td-img2"
+                    src="./assets/images/gold.png"
+                    alt=""
+                  />
+                </td>
+                <td class="email-text2">admisern@admin.com</td>
+                <td class="email-text2">CQC Cleaning Services</td>
+                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                <td class="email-text2">5/1-25</td>
+              </tr>
+              <tr class="border-line">
+                <td class="td-img">
+                  <img
+                    class="td-img2"
+                    src="./assets/images/gold.png"
+                    alt=""
+                  />
+                </td>
+                <td class="email-text2">hurygeg@mailinator.com</td>
+                <td class="email-text2">CQC Cleaning Services</td>
+                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                <td class="email-text2">5/1-25</td>
+              </tr>
+              <tr class="border-line">
+                <td class="td-img">
+                  <img
+                    class="td-img2"
+                    src="./assets/images/gold.png"
+                    alt=""
+                  />
+                </td>
+                <td class="email-text2">floydmile@gmail.com</td>
+                <td class="email-text2">CQC Cleaning Services</td>
+                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                <td class="email-text2">5/1-25</td>
+              </tr>
+              <tr class="border-line">
+                <td class="td-img">
+                  <img
+                    class="td-img2"
+                    src="./assets/images/gold.png"
+                    alt=""
+                  />
+                </td>
+                <td class="email-text2">tofayel@gmail.com</td>
+                <td class="email-text2">CQC Cleaning Services</td>
+                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                <td class="email-text2">5/1-25</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Profile Section -->
+        <div id="item4" class="hidden profile-item">
+
+          <div class="profile-grid">
+            <!-- <div class="profile-items">
+              <img class="profile-img1" id="profileImage" src="./assets/images/admin.png" alt="" />
+             
+            </div>
+            <div class="profile-image-upload">
+              
+              <label for="uploadPhoto" class="upload-img-btn">Upload Image
+                <input type="file" id="uploadPhoto" accept="image/*" />
+              </label>
+              
+            </div> -->
+            <div class="image-preview" id="imagePreview">
+            </div>
+            <label class="upload-button">
+              <span class="upload-img-text">Upload Image</span>
+              <input type="file" id="imageInput" accept="image/*" />
+            </label>
+
+          </div>
+
+          <h1 class="username">Username:</h1>
+          <input type="text" class="username-input" placeholder="mark123" />
+          <div class="setting-input-grid">
+            <div>
+              <h1 class="setting-menu-text">First Name:</h1>
+              <input type="text" class="setting-input2" placeholder="Admin" name="" id="">
+            </div>
+            <div>
+              <h1 class="setting-menu-text2">Last Name:</h1>
+              <input type="text" class="setting-input3" placeholder="Super" name="" id="">
+            </div>
+            <div>
+              <h1 class="email-text">Email:</h1>
+              <input type="text" class="email" placeholder="admin@admin.com" name="" id="">
+            </div>
+            <div>
+              <h1 class="position-text">Position:</h1>
+              <input type="text" class="ceo" placeholder="CEO" name="" id="">
+            </div>
+            <div>
+              <h1 class="email-text">Phone Number:</h1>
+              <input type="text" class="email" placeholder="+8801743245344" name="" id="">
+            </div>
+            <div>
+              <h1 class="setting-menu-text2">Website:</h1>
+              <input type="text" class="setting-input3" placeholder="https://example.com" name="" id="">
+            </div>
+            
+          </div>
+          <h1 class="setting-menu-text">About:</h1>
+            <textarea class="setting-textarea" name="" id="" cols="159" rows="6" placeholder="I am working for the last 10 days..."></textarea>
+
+            <h1 class="address-text">Address & Location</h1>
+            <h1 class="address-text2">Address:</h1>
+            <input type="text" name="" id="" placeholder="Banasree, Rampura, Dhaka" class="address-input">
+  
+            <div class="address-input-grid">
+              <div>
+                <h1 class="address-text2">Country:</h1>
+                <input type="text" name="" id="" placeholder="Bangladesh" class="address-input2">
+              </div>
+              <div>
+                <h1 class="address-text3">City:</h1>
+                <input type="text" name="" id="" placeholder="Dhaka" class="address-input3">
+              </div>
+              <div>
+                <h1 class="address-text3">Zip Code:</h1>
+                <input type="text" name="" id="" placeholder="124" class="address-input3">
+              </div>
+              <div>
+                <h1 class="address-text3">State:</h1>
+                <input type="text" name="" id="" placeholder="Dhaka" class="address-input3">
+              </div>
+            </div>
+            <button class="update-button" id="updateButton">Update</button>
+        </div>
+
+        <!-- Notification Section -->
+        <div id="item5" class="notification-item hidden">
+          <div class="notification-items">
+            <p class="notification-text1">Your Notification</p>
+            <div class="mark">
+              <img class="mark-img" src="./assets/images/mark.png" alt="">
+              <p class="notification-text2">Mark all read</p>
+            </div>
+          </div>
+
+          <div class="notification-items2">
+            <div class="notification-item1">
+              <div class="notification-item2">
+                <img class="notification-img1" src="./assets/images/notificationImg1.png" alt="">
+                <div class="notification-text3">
+                  <h2 class="notification-name">Mr Lee Ales</h2>
+                  <small class="notification-email">tanehot126@matmayer.com</small>
+                </div>
+              </div>
+              <div class="green-circle"></div>
+            </div>
+            <div>
+              <p class="application-text">New Application for office cleaning services - Silver Package</p>
+              <div class="notification-time">
+                <p>Saturday 7:21 PM</p>
+                <p class="time">5 hours ago</p>
+              </div>
+            </div>
+          </div>
+          <div class="notification-border-line"></div>
+          <div class="notification-items2">
+            <div class="notification-item1">
+              <div class="notification-item2">
+                <img class="notification-img1" src="./assets/images/notificationImg2.png" alt="">
+                <div class="notification-text3">
+                  <h2 class="notification-name">Mr Lee Ales</h2>
+                  <small class="notification-email">tanehot126@matmayer.com</small>
+                </div>
+              </div>
+              <div class="green-circle"></div>
+            </div>
+            <div>
+              <p class="application-text">New Application for office cleaning services - Silver Package</p>
+              <div class="notification-time">
+                <p>Saturday 7:21 PM</p>
+                <p class="time">5 hours ago</p>
+              </div>
+            </div>
+          </div>
+          <div class="notification-border-line"></div>
+          <div class="notification-items2">
+            <div class="notification-item1">
+              <div class="notification-item2">
+                <img class="notification-img1" src="./assets/images/notificationImg11.png" alt="">
+                <div class="notification-text3">
+                  <h2 class="notification-name">Mr Lee Ales</h2>
+                  <small class="notification-email">tanehot126@matmayer.com</small>
+                </div>
+              </div>
+              <div class="green-circle"></div>
+            </div>
+            <div class="application">
+              <p class="application-text">New Application for office cleaning services - Silver Package</p>
+              <div class="notification-time">
+                <p>Saturday 7:21 PM</p>
+                <p class="time">5 hours ago</p>
+              </div>
+            </div>
+          </div>
+          <div class="notification-border-line"></div>
+          <div class="notification-items2">
+            <div class="notification-item1">
+              <div class="notification-item2">
+                <img class="notification-img1" src="./assets/images/notificationImg12.png" alt="">
+                <div class="notification-text3">
+                  <h2 class="notification-name">Mr Lee Ales</h2>
+                  <small class="notification-email">tanehot126@matmayer.com</small>
+                </div>
+              </div>
+              <div class="green-circle"></div>
+            </div>
+            <div>
+              <p class="application-text">New Application for office cleaning services - Silver Package</p>
+              <div class="notification-time">
+                <p>Saturday 7:21 PM</p>
+                <p class="time">5 hours ago</p>
+              </div>
+            </div>
+          </div>
+          <div class="notification-border-line"></div>
+          <div class="notification-items2">
+            <div class="notification-item1">
+              <div class="notification-item2">
+                <img class="notification-img1" src="./assets/images/notificationImg3.png" alt="">
+                <div class="notification-text3">
+                  <h2 class="notification-name">Mr Lee Ales</h2>
+                  <small class="notification-email">tanehot126@matmayer.com</small>
+                </div>
+              </div>
+              <div class="green-circle"></div>
+            </div>
+            <div>
+              <p class="application-text">New Application for office cleaning services - Silver Package</p>
+              <div class="notification-time">
+                <p>Saturday 7:21 PM</p>
+                <p class="time">5 hours ago</p>
+              </div>
+            </div>
+          </div>
+          <div class="notification-border-line"></div>
+          <div class="notification-items2">
+            <div class="notification-item1">
+              <div class="notification-item2">
+                <img class="notification-img1" src="./assets/images/notificationImg4.png" alt="">
+                <div class="notification-text3">
+                  <h2 class="notification-name">Mr Lee Ales</h2>
+                  <small class="notification-email">tanehot126@matmayer.com</small>
+                </div>
+              </div>
+              <div class="green-circle"></div>
+            </div>
+            <div>
+              <p class="application-text">New Application for office cleaning services - Silver Package</p>
+              <div class="notification-time">
+                <p>Saturday 7:21 PM</p>
+                <p class="time">5 hours ago</p>
+              </div>
+            </div>
+          </div>
+          <div class="notification-border-line"></div>
+          <div class="notification-items2">
+            <div class="notification-item1">
+              <div class="notification-item2">
+                <img class="notification-img1" src="./assets/images/notificationImg5.png" alt="">
+                <div class="notification-text3">
+                  <h2 class="notification-name">Mr Lee Ales</h2>
+                  <small class="notification-email">tanehot126@matmayer.com</small>
+                </div>
+              </div>
+              <div class="green-circle"></div>
+            </div>
+            <div>
+              <p class="application-text">New Application for office cleaning services - Silver Package</p>
+              <div class="notification-time">
+                <p>Saturday 7:21 PM</p>
+                <p class="time">5 hours ago</p>
+              </div>
+            </div>
+          </div>
+          <div class="notification-border-line border-line-gap notification-bottom"></div>
+          
+        </div>
+
+        <!-- setting section  -->
+        
+          <div id="item6" class="setting-item hidden">
+            <h1 class="setting-menu-text">System Name</h1>
+            <input type="text" class="setting-input" placeholder="mark123" />
+  
+            <div class="setting-input-grid">
+              <div>
+                <h1 class="setting-menu-text">System Title</h1>
+                <input type="text" class="setting-input2" placeholder="Mark Anthony" name="" id="">
+              </div>
+              <div>
+                <h1 class="setting-menu-text2">System Address</h1>
+                <input type="text" class="setting-input3" placeholder="Natthan" name="" id="">
+              </div>
+              <div>
+                <h1 class="setting-menu-text">System Email</h1>
+                <input type="text" class="setting-input2" placeholder="companyinfo@gmail.com" name="" id="">
+              </div>
+              <div>
+                <h1 class="setting-menu-text2">System Number</h1>
+                <input type="text" class="setting-input3" placeholder="+44 17 5641" name="" id="">
+              </div>
+              <div>
+                <h1 class="setting-menu-text">System Favicon</h1>
+                <input type="text" class="setting-input2" placeholder="https://google.com" name="" id="">
+              </div>
+            </div>
+            <h1 class="setting-menu-text">About:</h1>
+            <textarea class="setting-textarea" name="" id="" cols="159" rows="6" placeholder="I am working for the last 10 days..."></textarea>
+  
+            <h1 class="address-text">Address & Location</h1>
+            <h1 class="address-text2">Address:</h1>
+            <input type="text" name="" id="" placeholder="Abbey Hill, United Kingdom" class="address-input">
+  
+            <div class="address-input-grid">
+              <div>
+                <h1 class="address-text2">Country:</h1>
+                <input type="text" name="" id="" placeholder="UK" class="address-input2">
+              </div>
+              <div>
+                <h1 class="address-text3">City:</h1>
+                <input type="text" name="" id="" placeholder="London" class="address-input3">
+              </div>
+              <div>
+                <h1 class="address-text3">Zip Code:</h1>
+                <input type="text" name="" id="" placeholder="12458" class="address-input3">
+              </div>
+              <div>
+                <h1 class="address-text3">State:</h1>
+                <input type="text" name="" id="" placeholder="Scotland" class="address-input3">
+              </div>
+            </div>
+            <button class="update-button" id="updateButton2">Update</button>
+          </div>
+
+          <div id="item7" class="hidden">
+            <h1 class="package-page">Package Info Page</h1>
+          </div>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const packagesToggle = document.getElementById("packages-toggle");
+      const profileToggle = document.getElementById("profile-toggle");
+      const packagesMenu = document.getElementById("packages-menu");
+      const packagesIcon = document.getElementById("package-icon");
+
+      packagesToggle.addEventListener("click", () => {
+        packagesMenu.style.display =
+          packagesMenu.style.display === "block" ? `none` : "block";
+        packagesIcon.classList.toggle("open");
+        packagesIcon.classList.add("rotate");
+      });
+
+      // hide 3 packages menu
+      
+
+      // profileToggle.addEventListener("click", () => {
+        
+      // })
+
+      // item show function
+      function showContent(contentId) {
+        const contents = document.querySelectorAll(".hidden");
+        contents.forEach((content) => {
+          if (content.id === contentId) {
+            content.classList.add("active");
+          } else {
+            content.classList.remove("active");
+          }
+        });
+      }
+
+
+    
+
+      // button greem color change function 
+      const buttons = document.querySelectorAll(".color-button");
+
+      // Add event listeners to all buttons
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          // Remove the green class from all buttons
+          buttons.forEach((btn) => btn.classList.remove("green"));
+          // Add the green class to the clicked button
+          button.classList.add("green");
+        })
+      })
+
+
+      // sidebar menu color function
+      const buttons2 = document.querySelectorAll(".color-button2");
+      // Add event listeners to all buttons
+      buttons2.forEach((button2) => {
+        button2.addEventListener("click", () => {
+          // Remove the purple class from all buttons
+          buttons2.forEach((btn2) => btn2.classList.remove("purple"));
+          // Add the green class to the clicked button
+          button2.classList.add("purple");
+        })
+      })
+  
+      // upload image function
+      const imageInput = document.getElementById("imageInput");
+      const imagePreview = document.getElementById("imagePreview");
+      const imagePreview2 = document.getElementById("imagePreview2");
+
+      imageInput.addEventListener("change", () => {
+        const file = imageInput.files[0];
+
+        if (file) {
+          const reader = new FileReader();
+
+          reader.onload = () => {
+            imagePreview.innerHTML = `<img src="${reader.result}" alt="Uploaded Image">`;
+            imagePreview2.innerHTML = `<img src="${reader.result}" alt="Uploaded Image">`;
+          };
+
+          reader.readAsDataURL(file);
+        } else {
+          imagePreview.innerHTML = "<p>No image uploaded.</p>";
+          imagePreview2.innerHTML = "<p>No image uploaded.</p>";
+        }
+      });
+
+      //  logout button funtionality 
+      const alertButton = document.getElementById("alertButton");
+
+      alertButton.addEventListener("click", () => {
+        Swal.fire({
+          title: "Successfully Logged Out",
+          text: "",
+          icon: "success",
+          background: "#fff",
+          confirmButtonColor: "#007BFF",
+        });
+      });
+
+      // update button functionality
+      const updateButton = document.getElementById("updateButton");
+
+      updateButton.addEventListener("click", () => {
+        Swal.fire({
+          title: "Successfully Updated",
+          text: "",
+          icon: "success",
+          background:"#fff",
+          confirmButtonColor: "#02b71f",
+        })
+      })
+
+      const updateButton2 = document.getElementById("updateButton2");
+
+      updateButton2.addEventListener("click", () => {
+        Swal.fire({
+          title: "Successfully Updated",
+          text: "",
+          icon: "success",
+          background:"#fff",
+          confirmButtonColor: "#02b71f",
+        })
+      })
+
+      // toggle sidebar 
+      document.addEventListener("DOMContentLoaded", () => {
+        const resToggleBtn = document.getElementById("res-toggle-btn");
+        const xToggleBtn = document.getElementById("x-button");
+        const dashboardToggle = document.getElementById("dashboard-top-menu-id");
+        const sidebar = document.getElementById("sidebar");
+       // const content = document.querySelector(".dashboard-top-menu");
+
+        resToggleBtn.addEventListener("click", () => {
+          sidebar.classList.add("active2");
+        //  content.classList.toggle("active");
+        })
+
+        xToggleBtn.addEventListener("click", () => {
+          sidebar.classList.remove("active2");
+        //  content.classList.toggle("active");
+        })
+
+
+        dashboardToggle.addEventListener("click", () => {
+          sidebar.classList.remove("active2");
+        //  content.classList.toggle("active");
+        })
+
+      })
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>
