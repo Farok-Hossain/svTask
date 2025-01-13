@@ -83,25 +83,12 @@
         height: 86px;
         object-fit: cover;
         border-radius: 64px;
-    position: absolute;
-    top: -15px;
-    left: -10px;
-    bottom: 0px;
-    right: 0px;
+        position: absolute;
+        top: -15px;
+        left: -10px;
+        bottom: 0px;
+        right: 0px;
         
-      }
-
-      /* logout css  */
-
-      .alert-button {
-        padding: 10px 20px;
-        font-size: 16px;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        background-color: #0f2a5c;
-        cursor: pointer;
-        transition: background-color 0.3s;
       }
     </style>
   </head>
@@ -187,8 +174,9 @@
         </div>
 
         <!-- Logout -->
-        <div class="logout">
-          <button class="alert-button" id="alertButton">Logout</button>
+        <div class="logout" id="alertButton">
+          <img class="logout-logo" src="./assets/images/logout-button.png" alt="">
+          <button class="alert-button" >Log out</button>
         </div>
       </div>
       <button id="res-toggle-btn" class="res-toggle-btn">☰</button>
@@ -196,7 +184,7 @@
         
         <div class="dashboard-menu">
           <div>
-            <p class="dashboard-text">Dashboard</p>
+            <p class="dashboard-text">Profile</p>
           </div>
           <div class="dashboard-avatar-d">
             <img class="bell-img" id="profileHeaderImage" onclick="showContent('item5')" src="./assets/images/bell-pic.png" alt="" />
@@ -234,124 +222,230 @@
               </svg>
             </button>
           </div>
-          <table>
-            <thead class="table-head">
-              <tr class="table-header">
-                <th class="table-name">Package</th>
-                <th class="table-email">Email</th>
-                <th class="table-service">Service Name</th>
-                <th class="table-location">Location</th>
-                <th class="table-date">Date</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr class="border-line">
-                <td class="td-img">
-                  <img
-                    class="td-img2"
-                    src="./assets/images/bronze.png"
-                    alt=""
-                  />
-                </td>
-                <td class="email-text2">rasel4babu87@gmail.com</td>
-                <td class="email-text2">CQC Cleaning Services</td>
-                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
-                <td class="email-text2">5/1-25</td>
-              </tr>
-              <tr class="border-line">
-                <td class="td-img">
-                  <img
-                    class="td-img2"
-                    src="./assets/images/bronze.png"
-                    alt=""
-                  />
-                </td>
-                <td class="email-text2">doral95678@matmayer.com</td>
-                <td class="email-text2">CQC Cleaning Services</td>
-                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
-                <td class="email-text2">5/1-25</td>
-              </tr>
-              <tr class="border-line">
-                <td class="td-img">
-                  <img
-                    class="td-img2"
-                    src="./assets/images/bronze.png"
-                    alt=""
-                  />
-                </td>
-                <td class="email-text2">solaimansiam93@gmail.com</td>
-                <td class="email-text2">CQC Cleaning Services</td>
-                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
-                <td class="email-text2">5/1-25</td>
-              </tr>
-              <tr class="border-line">
-                <td class="td-img">
-                  <img
-                    class="td-img2"
-                    src="./assets/images/bronze.png"
-                    alt=""
-                  />
-                </td>
-                <td class="email-text2">admin@admin.com</td>
-                <td class="email-text2">CQC Cleaning Services</td>
-                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
-                <td class="email-text2">5/1-25</td>
-              </tr>
-              <tr class="border-line">
-                <td class="td-img">
-                  <img
-                    class="td-img2"
-                    src="./assets/images/bronze.png"
-                    alt=""
-                  />
-                </td>
-                <td class="email-text2">raselbabu87@gmail.com</td>
-                <td class="email-text2">CQC Cleaning Services</td>
-                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
-                <td class="email-text2">5/1-25</td>
-              </tr>
-              <tr class="border-line">
-                <td class="td-img">
-                  <img
-                    class="td-img2"
-                    src="./assets/images/bronze.png"
-                    alt=""
-                  />
-                </td>
-                <td class="email-text2">john@gmail.com</td>
-                <td class="email-text2">CQC Cleaning Services</td>
-                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
-                <td class="email-text2">5/1-25</td>
-              </tr>
-              <tr class="border-line">
-                <td class="td-img">
-                  <img
-                    class="td-img2"
-                    src="./assets/images/bronze.png"
-                    alt=""
-                  />
-                </td>
-                <td class="email-text2">miller@gmail.com</td>
-                <td class="email-text2">CQC Cleaning Services</td>
-                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
-                <td class="email-text2">5/1-25</td>
-              </tr>
-              <tr class="border-line">
-                <td class="td-img">
-                  <img
-                    class="td-img2"
-                    src="./assets/images/bronze.png"
-                    alt=""
-                  />
-                </td>
-                <td class="email-text2">zack@gmail.com</td>
-                <td class="email-text2">CQC Cleaning Services</td>
-                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
-                <td class="email-text2">5/1-25</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="table-box">
+            <table class="table-res">
+              <thead class="table-head">
+                <tr class="table-header">
+                  <th class="table-name">Package</th>
+                  <th class="table-email">Email</th>
+                  <th class="table-service">Service Name</th>
+                  <th class="table-location">Location</th>
+                  <th class="table-date">Date</th>
+                </tr>
+              </thead>
+  
+              <tbody>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">rasel4babu87@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">rasel4babu87@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">rasel4babu87@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">rasel4babu87@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">rasel4babu87@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">rasel4babu87@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">rasel4babu87@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">rasel4babu87@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">rasel4babu87@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">doral95678@matmayer.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">solaimansiam93@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">admin@admin.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">raselbabu87@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">john@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">miller@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">zack@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
         <div class="dashboard-bottom-menu hidden" id="item2">
           <div class="button-menu">
@@ -376,124 +470,232 @@
               </svg>
             </button>
           </div>
-          <table>
-            <thead class="table-head">
-              <tr class="table-header">
-                <th class="table-name">Package</th>
-                <th class="table-email">Email</th>
-                <th class="table-service">Service Name</th>
-                <th class="table-location">Location</th>
-                <th class="table-date">Date</th>
-              </tr>
-            </thead>
 
-            <tbody>
-              <tr class="border-line">
-                <td class="td-img">
-                  <img
-                    class="td-img2"
-                    src="./assets/images/silver.png"
-                    alt=""
-                  />
-                </td>
-                <td class="email-text2">sazyk@mailinator.com</td>
-                <td class="email-text2">CQC Cleaning Services</td>
-                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
-                <td class="email-text2">5/1-25</td>
-              </tr>
-              <tr class="border-line">
-                <td class="td-img">
-                  <img
-                    class="td-img2"
-                    src="./assets/images/silver.png"
-                    alt=""
-                  />
-                </td>
-                <td class="email-text2">floydmile@gmail.com</td>
-                <td class="email-text2">CQC Cleaning Services</td>
-                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
-                <td class="email-text2">5/1-25</td>
-              </tr>
-              <tr class="border-line">
-                <td class="td-img">
-                  <img
-                    class="td-img2"
-                    src="./assets/images/silver.png"
-                    alt=""
-                  />
-                </td>
-                <td class="email-text2">tanehot126@matmayer.com</td>
-                <td class="email-text2">CQC Cleaning Services</td>
-                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
-                <td class="email-text2">5/1-25</td>
-              </tr>
-              <tr class="border-line">
-                <td class="td-img">
-                  <img
-                    class="td-img2"
-                    src="./assets/images/silver.png"
-                    alt=""
-                  />
-                </td>
-                <td class="email-text2">tozomuzod@mailinator.com</td>
-                <td class="email-text2">CQC Cleaning Services</td>
-                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
-                <td class="email-text2">5/1-25</td>
-              </tr>
-              <tr class="border-line">
-                <td class="td-img">
-                  <img
-                    class="td-img2"
-                    src="./assets/images/silver.png"
-                    alt=""
-                  />
-                </td>
-                <td class="email-text2">hokusif@mailinator.com</td>
-                <td class="email-text2">CQC Cleaning Services</td>
-                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
-                <td class="email-text2">5/1-25</td>
-              </tr>
-              <tr class="border-line">
-                <td class="td-img">
-                  <img
-                    class="td-img2"
-                    src="./assets/images/silver.png"
-                    alt=""
-                  />
-                </td>
-                <td class="email-text2">xuxeva@mailinator.com</td>
-                <td class="email-text2">CQC Cleaning Services</td>
-                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
-                <td class="email-text2">5/1-25</td>
-              </tr>
-              <tr class="border-line">
-                <td class="td-img">
-                  <img
-                    class="td-img2"
-                    src="./assets/images/silver.png"
-                    alt=""
-                  />
-                </td>
-                <td class="email-text2">rael4ab4u67@gmail.com</td>
-                <td class="email-text2">CQC Cleaning Services</td>
-                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
-                <td class="email-text2">5/1-25</td>
-              </tr>
-              <tr class="border-line">
-                <td class="td-img">
-                  <img
-                    class="td-img2"
-                    src="./assets/images/silver.png"
-                    alt=""
-                  />
-                </td>
-                <td class="email-text2">easdfasdfeadsf@gmail.com</td>
-                <td class="email-text2">CQC Cleaning Services</td>
-                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
-                <td class="email-text2">5/1-25</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="table-box">
+            <table class="table-res">
+              <thead class="table-head">
+                <tr class="table-header">
+                  <th class="table-name">Package</th>
+                  <th class="table-email">Email</th>
+                  <th class="table-service">Service Name</th>
+                  <th class="table-location">Location</th>
+                  <th class="table-date">Date</th>
+                </tr>
+              </thead>
+  
+              <tbody>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">rasel4babu87@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">rasel4babu87@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">rasel4babu87@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">rasel4babu87@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">rasel4babu87@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">rasel4babu87@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">rasel4babu87@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">rasel4babu87@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/silver.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">sazyk@mailinator.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/silver.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">floydmile@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/silver.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">tanehot126@matmayer.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/silver.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">tozomuzod@mailinator.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/silver.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">hokusif@mailinator.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/silver.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">xuxeva@mailinator.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/silver.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">rael4ab4u67@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/silver.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">easdfasdfeadsf@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
         </div>
         <div class="dashboard-bottom-menu hidden" id="item3">
           <div class="button-menu">
@@ -518,152 +720,247 @@
               </svg>
             </button>
           </div>
-          <table>
-            <thead class="table-head">
-              <tr class="table-header">
-                <th class="table-name">Package</th>
-                <th class="table-email">Email</th>
-                <th class="table-service">Service Name</th>
-                <th class="table-location">Location</th>
-                <th class="table-date">Date</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr class="border-line">
-                <td class="td-img">
-                  <img
-                    class="td-img2"
-                    src="./assets/images/gold.png"
-                    alt=""
-                  />
-                </td>
-                <td class="email-text2">zalot@mailinator.com</td>
-                <td class="email-text2">CQC Cleaning Services</td>
-                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
-                <td class="email-text2">5/1-25</td>
-              </tr>
-              <tr class="border-line">
-                <td class="td-img">
-                  <img
-                    class="td-img2"
-                    src="./assets/images/gold.png"
-                    alt=""
-                  />
-                </td>
-                <td class="email-text2">quxevomucy@mailinator.com</td>
-                <td class="email-text2">CQC Cleaning Services</td>
-                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
-                <td class="email-text2">5/1-25</td>
-              </tr>
-              <tr class="border-line">
-                <td class="td-img">
-                  <img
-                    class="td-img2"
-                    src="./assets/images/gold.png"
-                    alt=""
-                  />
-                </td>
-                <td class="email-text2">raelbabiu67@gmail.com</td>
-                <td class="email-text2">CQC Cleaning Services</td>
-                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
-                <td class="email-text2">5/1-25</td>
-              </tr>
-              <tr class="border-line">
-                <td class="td-img">
-                  <img
-                    class="td-img2"
-                    src="./assets/images/gold.png"
-                    alt=""
-                  />
-                </td>
-                <td class="email-text2">raselbabu67@gmail.com</td>
-                <td class="email-text2">CQC Cleaning Services</td>
-                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
-                <td class="email-text2">5/1-25</td>
-              </tr>
-              <tr class="border-line">
-                <td class="td-img">
-                  <img
-                    class="td-img2"
-                    src="./assets/images/gold.png"
-                    alt=""
-                  />
-                </td>
-                <td class="email-text2">admisern@admin.com</td>
-                <td class="email-text2">CQC Cleaning Services</td>
-                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
-                <td class="email-text2">5/1-25</td>
-              </tr>
-              <tr class="border-line">
-                <td class="td-img">
-                  <img
-                    class="td-img2"
-                    src="./assets/images/gold.png"
-                    alt=""
-                  />
-                </td>
-                <td class="email-text2">hurygeg@mailinator.com</td>
-                <td class="email-text2">CQC Cleaning Services</td>
-                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
-                <td class="email-text2">5/1-25</td>
-              </tr>
-              <tr class="border-line">
-                <td class="td-img">
-                  <img
-                    class="td-img2"
-                    src="./assets/images/gold.png"
-                    alt=""
-                  />
-                </td>
-                <td class="email-text2">floydmile@gmail.com</td>
-                <td class="email-text2">CQC Cleaning Services</td>
-                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
-                <td class="email-text2">5/1-25</td>
-              </tr>
-              <tr class="border-line">
-                <td class="td-img">
-                  <img
-                    class="td-img2"
-                    src="./assets/images/gold.png"
-                    alt=""
-                  />
-                </td>
-                <td class="email-text2">tofayel@gmail.com</td>
-                <td class="email-text2">CQC Cleaning Services</td>
-                <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
-                <td class="email-text2">5/1-25</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="table-box">
+            <table class="table-res">
+              <thead class="table-head">
+                <tr class="table-header">
+                  <th class="table-name">Package</th>
+                  <th class="table-email">Email</th>
+                  <th class="table-service">Service Name</th>
+                  <th class="table-location">Location</th>
+                  <th class="table-date">Date</th>
+                </tr>
+              </thead>
+  
+              <tbody>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">rasel4babu87@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">rasel4babu87@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">rasel4babu87@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">rasel4babu87@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">rasel4babu87@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">rasel4babu87@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">rasel4babu87@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/bronze.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">rasel4babu87@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/gold.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">zalot@mailinator.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/gold.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">quxevomucy@mailinator.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/gold.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">raelbabiu67@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/gold.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">raselbabu67@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/gold.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">admisern@admin.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/gold.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">hurygeg@mailinator.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/gold.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">floydmile@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+                <tr class="border-line">
+                  <td class="td-img">
+                    <img
+                      class="td-img2"
+                      src="./assets/images/gold.png"
+                      alt=""
+                    />
+                  </td>
+                  <td class="email-text2">tofayel@gmail.com</td>
+                  <td class="email-text2">CQC Cleaning Services</td>
+                  <td class="email-text2">Buckinghamshire(HP10 0AA)</td>
+                  <td class="email-text2">5/1-25</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <!-- Profile Section -->
         <div id="item4" class="hidden profile-item">
 
           <div class="profile-grid">
-            <!-- <div class="profile-items">
-              <img class="profile-img1" id="profileImage" src="./assets/images/admin.png" alt="" />
-             
-            </div>
-            <div class="profile-image-upload">
-              
-              <label for="uploadPhoto" class="upload-img-btn">Upload Image
-                <input type="file" id="uploadPhoto" accept="image/*" />
-              </label>
-              
-            </div> -->
             <div class="image-preview" id="imagePreview">
             </div>
             <label class="upload-button">
-              <span class="upload-img-text">Upload Image</span>
+              <span class="upload-img-text">Upload Photo</span>
               <input type="file" id="imageInput" accept="image/*" />
             </label>
 
           </div>
 
           <h1 class="username">Username:</h1>
-          <input type="text" class="username-input" placeholder="mark123" />
+          <input type="text" class="username-input" placeholder="superadmin" />
           <div class="setting-input-grid">
             <div>
               <h1 class="setting-menu-text">First Name:</h1>
@@ -692,7 +989,7 @@
             
           </div>
           <h1 class="setting-menu-text">About:</h1>
-            <textarea class="setting-textarea" name="" id="" cols="159" rows="6" placeholder="I am working for the last 10 days..."></textarea>
+            <textarea class="setting-textarea" name="" id="" cols="160" rows="6" placeholder="I am working for the last 10 days..."></textarea>
 
             <h1 class="address-text">Address & Location</h1>
             <h1 class="address-text2">Address:</h1>
@@ -741,7 +1038,67 @@
               <div class="green-circle"></div>
             </div>
             <div>
-              <p class="application-text">New Application for office cleaning services - Silver Package</p>
+              <p class="application-text">New Application for Gold Package</p>
+              <div class="notification-time">
+                <p>Saturday 7:21 PM</p>
+                <p class="time">5 hours ago</p>
+              </div>
+            </div>
+          </div>
+          <div class="notification-border-line"></div>
+          <div class="notification-items2">
+            <div class="notification-item1">
+              <div class="notification-item2">
+                <img class="notification-img1" src="./assets/images/notificationImg1.png" alt="">
+                <div class="notification-text3">
+                  <h2 class="notification-name">Mr Lee Ales</h2>
+                  <small class="notification-email">tanehot126@matmayer.com</small>
+                </div>
+              </div>
+              <div class="green-circle"></div>
+            </div>
+            <div>
+              <p class="application-text">New Application for Gold Package</p>
+              <div class="notification-time">
+                <p>Saturday 7:21 PM</p>
+                <p class="time">5 hours ago</p>
+              </div>
+            </div>
+          </div>
+          <div class="notification-border-line"></div>
+          <div class="notification-items2">
+            <div class="notification-item1">
+              <div class="notification-item2">
+                <img class="notification-img1" src="./assets/images/notificationImg1.png" alt="">
+                <div class="notification-text3">
+                  <h2 class="notification-name">Mr Lee Ales</h2>
+                  <small class="notification-email">tanehot126@matmayer.com</small>
+                </div>
+              </div>
+              <div class="green-circle"></div>
+            </div>
+            <div>
+              <p class="application-text">New Application for Gold Package</p>
+              <div class="notification-time">
+                <p>Saturday 7:21 PM</p>
+                <p class="time">5 hours ago</p>
+              </div>
+            </div>
+          </div>
+          <div class="notification-border-line"></div>
+          <div class="notification-items2">
+            <div class="notification-item1">
+              <div class="notification-item2">
+                <img class="notification-img1" src="./assets/images/notificationImg1.png" alt="">
+                <div class="notification-text3">
+                  <h2 class="notification-name">Mr Lee Ales</h2>
+                  <small class="notification-email">tanehot126@matmayer.com</small>
+                </div>
+              </div>
+              <div class="green-circle"></div>
+            </div>
+            <div>
+              <p class="application-text">New Application for Gold Package</p>
               <div class="notification-time">
                 <p>Saturday 7:21 PM</p>
                 <p class="time">5 hours ago</p>
@@ -761,7 +1118,7 @@
               <div class="green-circle"></div>
             </div>
             <div>
-              <p class="application-text">New Application for office cleaning services - Silver Package</p>
+              <p class="application-text">New Application for silver Package</p>
               <div class="notification-time">
                 <p>Saturday 7:21 PM</p>
                 <p class="time">5 hours ago</p>
@@ -781,7 +1138,7 @@
               <div class="green-circle"></div>
             </div>
             <div class="application">
-              <p class="application-text">New Application for office cleaning services - Silver Package</p>
+              <p class="application-text">New Application for Gold Package</p>
               <div class="notification-time">
                 <p>Saturday 7:21 PM</p>
                 <p class="time">5 hours ago</p>
@@ -801,7 +1158,7 @@
               <div class="green-circle"></div>
             </div>
             <div>
-              <p class="application-text">New Application for office cleaning services - Silver Package</p>
+              <p class="application-text">New Application for bronze Package</p>
               <div class="notification-time">
                 <p>Saturday 7:21 PM</p>
                 <p class="time">5 hours ago</p>
@@ -821,7 +1178,7 @@
               <div class="green-circle"></div>
             </div>
             <div>
-              <p class="application-text">New Application for office cleaning services - Silver Package</p>
+              <p class="application-text">New Application for silver Package</p>
               <div class="notification-time">
                 <p>Saturday 7:21 PM</p>
                 <p class="time">5 hours ago</p>
@@ -841,7 +1198,7 @@
               <div class="green-circle"></div>
             </div>
             <div>
-              <p class="application-text">New Application for office cleaning services - Silver Package</p>
+              <p class="application-text">New Application for bronze Package</p>
               <div class="notification-time">
                 <p>Saturday 7:21 PM</p>
                 <p class="time">5 hours ago</p>
@@ -861,7 +1218,7 @@
               <div class="green-circle"></div>
             </div>
             <div>
-              <p class="application-text">New Application for office cleaning services - Silver Package</p>
+              <p class="application-text">New Application for bronze Package</p>
               <div class="notification-time">
                 <p>Saturday 7:21 PM</p>
                 <p class="time">5 hours ago</p>
@@ -949,6 +1306,7 @@
         packagesIcon.classList.toggle("open");
         packagesIcon.classList.add("rotate");
       });
+
 
       // hide 3 packages menu
       
