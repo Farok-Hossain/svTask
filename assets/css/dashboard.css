@@ -116,10 +116,30 @@
 }
 
 .logout {
+  height: 20px;
+  width: 110px;
+  /* background-color: #02b71f;  */
   margin-top: auto;
+  margin-left: 80px;
   text-align: center;
-  padding: 15px 0;
-  margin-bottom: 200px;
+  padding: 10px;
+  margin-bottom: 67px;
+}
+
+.logout-logo {
+  margin-bottom: -5px;
+}
+
+.alert-button {
+  margin-left: -5px;
+  font-size: 17px;
+  color: #fff;
+  border: none;
+  padding-left: 10px;
+  margin-bottom: -20px;
+  background-color: #0f2a5c;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .logout p {
@@ -281,8 +301,12 @@
 }
 
 .dashboard-top-menu {
+  width: 1625px;
+  height: 100vh;
+  position: fixed;
   margin-left: 295px;
   transition: margin-left 0.3s ease;
+  z-index: -25;
 }
 
 .dashboard-top-menu.active2 {
@@ -318,7 +342,7 @@
   gap: 12px;
   height: 70px;
   width: 220px;
-  margin-left: 1120px;
+  margin-left: 1070px;
   margin-top: 35px;
 }
 
@@ -366,6 +390,11 @@
   height: 740px;
   margin-left: 30px;
   border-radius: 20px;
+  overflow-y: scroll;
+}
+
+.dashboard-bottom-menu::-webkit-scrollbar {
+  display: none;
 }
 
 .package-text {
@@ -388,7 +417,7 @@
   border-radius: 20px;
   height: 40px;
   margin-top: 55px;
-  margin-left: 950px;
+  margin-left: 800px;
   transition: transform 1s ease;
 }
 
@@ -870,6 +899,7 @@ table {
   padding-top: 10px;
   padding-left: 15px;
   font-weight: 400;
+  width: 1445px;
 }
 
 .address-text {
@@ -1002,8 +1032,16 @@ table {
     left: 0px;
   }
 
+  .dashboard-top-menu {
+    margin-left: 250px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 1129px;
+  }
+
   .dashboard-menu {
-    margin-left: -26px;
+    margin-left: 0px;
+    width: 1129px;
   }
 
   .dashboard-text {
@@ -1015,8 +1053,9 @@ table {
   }
 
   .dashboard-bottom-menu {
-    margin-left: -26px;
-    width: 1150px;
+    margin-left: 0px;
+    padding-right: 15px;
+    width: 1129px;
   }
   .menu-item2 {
     width: 180px;
@@ -1089,11 +1128,12 @@ table {
   }
 
   .profile-item {
-    width: 1090px;
-    margin-left: -26px;
+    margin-left: 0px;
+    padding-right: 15px;
+    width: 1069px;
   }
   .username-input {
-    width: 1006px;
+    width: 1000px;
     margin-top: 0px;
   }
 
@@ -1101,10 +1141,10 @@ table {
     width: 957px;
   }
   .setting-input2 {
-    width: 480px;
+    width: 483px;
   }
   .setting-input3 {
-    width: 480px;
+    width: 483px;
   }
 
   .email {
@@ -1112,18 +1152,18 @@ table {
   }
 
   .setting-textarea {
-    width: 1010px;
+    width: 1005px;
   }
 
   .address-input {
-    width: 1006px;
+    width: 1000px;
   }
 
   .address-input2 {
-    width: 229px;
+    width: 228px;
   }
   .address-input3 {
-    width: 228px;
+    width: 227px;
   }
 
   .update-button {
@@ -1131,18 +1171,20 @@ table {
   }
 
   .notification-item {
-    width: 1090px;
     height: 800px;
-    margin-left: -26px;
+    margin-left: 0px;
+    padding-right: 15px;
+    width: 1069px;
   }
 
   .setting-item {
-    width: 1090px;
-    margin-left: -26px;
+    margin-left: 0px;
+    padding-right: 15px;
+    width: 1069px;
   }
 
   .setting-input {
-    width: 1005px;
+    width: 1000px;
   }
 }
 
@@ -1155,6 +1197,25 @@ table {
   .sidebar {
     width: 250px;
     left: 0px;
+  }
+
+  .dashboard-top-menu {
+    margin-left: 250px;
+    padding-left: 25px;
+    padding-right: 15px;
+    width: 989px;
+    transition: margin-left 0.3s ease;
+  }
+
+  .dashboard-menu {
+    margin-left: 0px;
+    width: 989px;
+  }
+
+  .dashboard-bottom-menu {
+    margin-left: 0px;
+    padding-right: 15px;
+    width: 969px;
   }
 
   .dashboard-avatar-d {
@@ -1193,15 +1254,15 @@ table {
   }
 
   .button {
-    margin-left: 368px;
+    margin-left: 357px;
   }
 
   .silver-button {
-    margin-left: 386px;
+    margin-left: 374px;
   }
 
   .gold-button {
-    margin-left: 395px;
+    margin-left: 383px;
   }
 
   .table-name {
@@ -1232,61 +1293,68 @@ table {
   }
 
   .profile-item {
-    width: 978px;
+    width: 945px;
     border: 15px solid #f8f9fc;
+    margin-left: 0px;
+    overflow-x: hidden;
   }
 
   .username-input {
-    width: 915px;
-    margin-left: 20px;
+    width: 902px;
+    margin-left: 15px;
   }
 
   .setting-input2 {
     width: 435px;
-    margin-left: 20px;
+    margin-left: 15px;
   }
   .setting-input3 {
     width: 435px;
-    margin-right: 20px;
+    margin-right: 15px;
   }
   .email {
     width: 435px;
-    margin-left: 20px;
+    margin-left: 15px;
   }
 
   .setting-textarea {
-    width: 917px;
-    margin-left: 20px;
+    width: 909px;
+    margin-left: 15px;
   }
 
   .address-input {
-    width: 915px;
-    margin-left: 20px;
+    width: 903px;
+    margin-left: 15px;
   }
 
   .address-input2 {
-    width: 195px;
-    margin-left: 20px;
+    width: 206px;
+    margin-left: 15px;
   }
   .address-input3 {
-    width: 196px;
-    margin-left: 20px;
+    width: 207px;
+    margin-left: 15px;
   }
 
   .notification-item {
-    width: 968px;
     height: 800px;
     border: 15px solid #f8f9fc;
+    width: 942px;
+    margin-left: 0px;
+    padding-right: 15px;
   }
 
   .setting-item {
-    width: 978px;
+    width: 942px;
     border: 15px solid #f8f9fc;
+    margin-left: 0px;
+    padding-right: 15px;
+    overflow-x: hidden;
   }
 
   .setting-input {
-    width: 915px;
-    margin-left: 20px;
+    width: 903px;
+    margin-left: 15px;
   }
 }
 
@@ -1294,7 +1362,6 @@ table {
   outline: none;
 }
 
-/* Small Laptop  */
 @media (max-width: 1023px) {
   .sidebar {
     left: -280px;
@@ -1321,10 +1388,6 @@ table {
     z-index: 10;
   }
 
-  /* .dashboard-top-menu {
-    margin-left: 0px;
-  } */
-
   .image-preview {
     z-index: -2;
   }
@@ -1335,6 +1398,7 @@ table {
 
   .dashboard-text {
     font-size: 28px;
+    margin-left: 50px;
   }
 
   .dashboard-avatar-d {
@@ -1542,4 +1606,807 @@ table {
 
 /* Medium Tablet  */
 @media (max-width: 767px) {
+  .sidebar {
+    left: -280px;
+  }
+
+  .res-toggle-btn {
+    margin-left: 10px;
+    margin-top: 20px;
+    height: 45px;
+    z-index: 0;
+  }
+
+  .X-button {
+    display: block;
+    margin-left: 65px;
+    height: 30px;
+    width: 32px;
+    font-size: 20px;
+    background-color: white;
+    color: #0f2a5c;
+  }
+
+  .sidebar.active2 {
+    left: 0;
+    z-index: 10;
+  }
+
+  .res-toggle-btn {
+    height: 40px;
+    width: 40px;
+    padding-top: 6px;
+    padding-left: 12px;
+    margin-top: 12px;
+    margin-left: 10px;
+  }
+
+  .dashboard-text {
+    font-size: 20px;
+    margin-top: 18px;
+  }
+
+  .dashboard-avatar-d {
+    margin-left: 375px;
+  }
+
+  .adimn-ceo {
+    margin-top: -5px;
+  }
+
+  .dashboard-bottom-menu {
+    width: 740px;
+    border: 0px;
+  }
+
+  .package-text {
+    font-size: 19px;
+    margin-top: 35px;
+  }
+
+  .button {
+    margin-left: 220px;
+    margin-bottom: 20px;
+  }
+
+  .silver-button {
+    margin-left: 233px;
+    margin-bottom: 20px;
+  }
+
+  .gold-button {
+    margin-left: 240px;
+    margin-bottom: 20px;
+  }
+
+  .profile-item {
+    width: 720px;
+    margin-bottom: -10px;
+  }
+
+  .image-preview {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+  }
+
+  .upload-button {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 8px;
+    padding-bottom: 10px;
+    width: 101px;
+    height: 20px;
+    margin-top: 20px;
+  }
+
+  .upload-img-text {
+    font-size: 14px;
+  }
+
+  .username-input {
+    width: 675px;
+    margin-left: 10px;
+    height: 35px;
+  }
+
+  .setting-input-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .setting-input2 {
+    width: 675px;
+    margin-left: 10px;
+    height: 35px;
+  }
+  .setting-input3 {
+    width: 675px;
+    margin-left: 10px;
+    height: 35px;
+  }
+
+  .position-text {
+    margin-left: 30px;
+  }
+
+  .ceo {
+    width: 675px;
+    margin-left: 10px;
+    height: 35px;
+  }
+
+  .email {
+    width: 675px;
+    margin-left: 10px;
+    height: 35px;
+  }
+
+  .setting-textarea {
+    width: 679px;
+    margin-left: 10px;
+    height: 115px;
+  }
+
+  .address-input {
+    width: 675px;
+    margin-left: 10px;
+    height: 35px;
+  }
+
+  .address-input-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .address-input2 {
+    width: 329px;
+    margin-left: 10px;
+    height: 35px;
+  }
+
+  .address-input3 {
+    width: 329px;
+    margin-left: 10px;
+    height: 35px;
+  }
+
+  .update-button {
+    margin-left: 10px;
+    width: 170px;
+    margin-top: -20px;
+    height: 45px;
+  }
+
+  .notification-item {
+    width: 720px;
+  }
+
+  .notification-name {
+    font-size: 16px;
+  }
+
+  .application-text {
+    font-size: 16px;
+  }
+
+  .setting-item {
+    width: 720px;
+  }
+
+  .setting-input {
+    width: 675px;
+    margin-left: 10px;
+    height: 35px;
+  }
+
+  .setting-menu-text2 {
+    margin-left: 30px;
+  }
+}
+
+/* Small Tablet */
+@media (max-width: 599px) {
+  .sidebar {
+    left: -280px;
+  }
+
+  .res-toggle-btn {
+    margin-left: 10px;
+    margin-top: 20px;
+    height: 45px;
+    z-index: 0;
+  }
+
+  .X-button {
+    display: block;
+    margin-left: 65px;
+    height: 30px;
+    width: 32px;
+    font-size: 20px;
+    background-color: white;
+    color: #0f2a5c;
+  }
+
+  .sidebar.active2 {
+    left: 0;
+    z-index: 10;
+  }
+
+  .res-toggle-btn {
+    height: 40px;
+    width: 40px;
+    padding-top: 6px;
+    padding-left: 12px;
+    margin-top: 12px;
+    margin-left: 10px;
+  }
+
+  .dashboard-menu {
+    width: 200px;
+  }
+
+  .dashboard-text {
+    font-size: 20px;
+    margin-top: 18px;
+  }
+
+  .dashboard-avatar-d {
+    margin-top: 8px;
+    margin-left: 325px;
+  }
+
+  .adimn-ceo {
+    display: none;
+  }
+
+  .dashboard-bottom-menu {
+    margin-right: 20px;
+  }
+
+  .button-menu {
+    height: 140px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin: auto;
+  }
+
+  .package-text {
+    margin-top: -20px;
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 150px;
+  }
+
+  .button {
+    display: flex;
+    background: #02b71fcc;
+    border: none;
+    color: white;
+    width: 180px;
+    border-radius: 20px;
+    height: 40px;
+    margin-top: -30px;
+    margin-left: 200px;
+    transition: transform 1s ease;
+  }
+
+  .button-text {
+    font-size: 16px;
+  }
+  .table-box {
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+  }
+
+  .table-res {
+    width: 1050px;
+    margin-right: 30px;
+  }
+
+  .table-email {
+    width: 150px;
+  }
+
+  .email-text2 {
+    width: 150px;
+  }
+
+  .table-service {
+    width: 150px;
+  }
+
+  .table-location {
+    width: 150px;
+  }
+
+  .silver-button {
+    display: flex;
+    background: #02b71fcc;
+    border: none;
+    color: white;
+    width: 200px;
+    border-radius: 20px;
+    height: 40px;
+    margin-top: -30px;
+    margin-left: 200px;
+    transition: transform 1s ease;
+  }
+
+  .silver-button-text {
+    font-size: 16px;
+  }
+
+  .gold-button {
+    display: flex;
+    background: #02b71fcc;
+    border: none;
+    color: white;
+    width: 200px;
+    border-radius: 20px;
+    height: 40px;
+    margin-top: -30px;
+    margin-left: 200px;
+    transition: transform 1s ease;
+  }
+
+  .gold-button-text {
+    font-size: 16px;
+  }
+
+  .profile-item {
+    width: 555px;
+    margin-bottom: -10px;
+  }
+
+  .image-preview {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+  }
+
+  .upload-button {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 8px;
+    padding-bottom: 10px;
+    width: 101px;
+    height: 20px;
+    margin-top: 20px;
+  }
+
+  .upload-img-text {
+    font-size: 15px;
+  }
+
+  .username-input {
+    width: 511px;
+    margin-left: 10px;
+    height: 35px;
+  }
+
+  .setting-input-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .setting-input2 {
+    width: 511px;
+    margin-left: 10px;
+    height: 35px;
+  }
+  .setting-input3 {
+    width: 511px;
+    margin-left: 10px;
+    height: 35px;
+  }
+
+  .position-text {
+    margin-left: 30px;
+  }
+
+  .ceo {
+    width: 511px;
+    margin-left: 10px;
+    height: 35px;
+  }
+
+  .email {
+    width: 511px;
+    margin-left: 10px;
+    height: 35px;
+  }
+
+  .setting-textarea {
+    width: 516px;
+    margin-left: 10px;
+    height: 115px;
+  }
+
+  .address-input {
+    width: 511px;
+    margin-left: 10px;
+    height: 35px;
+  }
+
+  .address-input-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .address-input2 {
+    width: 244px;
+    margin-left: 10px;
+    height: 35px;
+  }
+
+  .address-input3 {
+    width: 244px;
+    margin-left: 10px;
+    height: 35px;
+  }
+
+  .update-button {
+    margin-left: 10px;
+    width: 170px;
+    margin-top: -20px;
+    height: 45px;
+  }
+
+  .notification-item {
+    width: 555px;
+  }
+
+  .notification-items {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    text-align: center;
+  }
+
+  .notification-text1 {
+    font-size: 18px;
+    margin-left: 0px;
+  }
+
+  .mark {
+    display: flex;
+    text-align: center;
+    gap: 10px;
+    padding-right: 20px;
+    cursor: pointer;
+    margin-top: -30px;
+    margin-left: 211px;
+  }
+
+  .notification-img1 {
+    width: 40px;
+    height: 40px;
+  }
+
+  .notification-email {
+    font-size: 14px;
+    font-weight: 300;
+    color: #4a4e53;
+    height: 12px;
+  }
+
+  .application-text {
+    font-size: 17px;
+    margin-top: 5px;
+  }
+
+  .setting-item {
+    width: 555px;
+  }
+
+  .setting-input {
+    width: 511px;
+  }
+
+  .address-text {
+    font-size: 20px;
+  }
+}
+
+/* Large Mobile */
+@media (max-width: 479px) {
+  .sidebar {
+    left: -280px;
+  }
+
+  .res-toggle-btn {
+    margin-left: 10px;
+    margin-top: 20px;
+    height: 45px;
+    z-index: 0;
+  }
+
+  .X-button {
+    display: block;
+    margin-left: 65px;
+    height: 30px;
+    width: 32px;
+    font-size: 20px;
+    background-color: white;
+    color: #0f2a5c;
+  }
+
+  .sidebar.active2 {
+    left: 0;
+    z-index: 10;
+  }
+
+  .res-toggle-btn {
+    height: 40px;
+    width: 40px;
+    padding-top: 6px;
+    padding-left: 12px;
+    margin-top: 12px;
+    margin-left: 10px;
+  }
+
+  .dashboard-menu {
+    width: 450px;
+  }
+
+  .dashboard-text {
+    font-size: 12px;
+  }
+
+  .dashboard-avatar-d {
+    margin-top: 8px;
+    margin-left: 255px;
+  }
+
+  .button-menu {
+    width: 450px;
+  }
+
+  .package-text {
+    margin-top: -20px;
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: -55px;
+  }
+
+  .button {
+    display: flex;
+    background: #02b71fcc;
+    border: none;
+    color: white;
+    width: 180px;
+    border-radius: 20px;
+    height: 40px;
+    margin-top: -30px;
+    margin-left: 0px;
+    transition: transform 1s ease;
+  }
+  .silver-button {
+    display: flex;
+    background: #02b71fcc;
+    border: none;
+    color: white;
+    width: 180px;
+    border-radius: 20px;
+    height: 40px;
+    margin-top: -30px;
+    margin-left: 0px;
+    transition: transform 1s ease;
+  }
+  .gold-button {
+    display: flex;
+    background: #02b71fcc;
+    border: none;
+    color: white;
+    width: 180px;
+    border-radius: 20px;
+    height: 40px;
+    margin-top: -30px;
+    margin-left: 0px;
+    transition: transform 1s ease;
+  }
+
+  .table-box {
+    width: 460px;
+  }
+
+  .profile-item {
+    width: 420px;
+  }
+
+  .upload-img-text {
+    font-size: 14px;
+  }
+
+  .username-input {
+    width: 390px;
+  }
+
+  .setting-input2 {
+    width: 390px;
+  }
+
+  .setting-input3 {
+    width: 390px;
+  }
+
+  .email {
+    width: 390px;
+  }
+
+  .ceo {
+    width: 390px;
+  }
+
+  .setting-textarea {
+    width: 395px;
+  }
+
+  .address-input {
+    width: 390px;
+  }
+
+  .address-input2 {
+    width: 189px;
+  }
+
+  .address-input3 {
+    width: 189px;
+  }
+
+  .notification-item {
+    width: 420px;
+  }
+
+  .mark {
+    margin-top: -30px;
+    margin-left: 144px;
+  }
+
+  .notification-img1 {
+    width: 30px;
+    height: 30px;
+    margin-left: -10px;
+  }
+
+  .notification-name {
+    margin-left: -50px;
+  }
+
+  .notification-email {
+    margin-left: -50px;
+    margin-bottom: 20px;
+  }
+
+  .application-text {
+    margin-top: 20px;
+    margin-left: -10px;
+  }
+
+  .green-circle {
+    margin-right: 0px;
+  }
+
+  .notification-time {
+    margin-left: -10px;
+  }
+
+  .time {
+    margin-right: 0px;
+  }
+
+  .setting-item {
+    width: 420px;
+  }
+
+  .setting-input {
+    width: 390px;
+  }
+}
+
+/* Medium Mobile */
+@media (max-width: 359px) {
+  .dashboard-menu {
+    width: 330px;
+  }
+
+  .dashboard-avatar-d {
+    margin-top: 8px;
+    margin-left: 140px;
+  }
+
+  .dashboard-bottom-menu {
+    width: 330px;
+  }
+
+  .button-menu {
+    overflow-x: hidden;
+  }
+  .package-text {
+    margin-top: -20px;
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 50px;
+  }
+
+  .button {
+    margin-left: 80px;
+  }
+
+  .profile-item {
+    width: 300px;
+  }
+
+  .username-input {
+    width: 270px;
+  }
+
+  .setting-input2 {
+    width: 270px;
+  }
+
+  .setting-input3 {
+    width: 270px;
+  }
+
+  .email {
+    width: 270px;
+  }
+
+  .ceo {
+    width: 270px;
+  }
+
+  .setting-textarea {
+    width: 275px;
+  }
+
+  .address-input {
+    width: 270px;
+  }
+
+  .address-input2 {
+    width: 128px;
+  }
+  .address-input3 {
+    width: 128px;
+  }
+
+  .notification-item {
+    width: 300px;
+  }
+
+  .mark {
+    margin-top: -30px;
+    margin-left: 82px;
+  }
+
+  .notification-name {
+    margin-left: -5px;
+  }
+
+  .notification-email {
+    margin-left: -5px;
+  }
+
+  .green-circle {
+    background-color: #02b71f;
+    height: 10px;
+    width: 10px;
+    border-radius: 100%;
+    margin-right: 0px;
+  }
+
+  .application-text {
+    font-size: 14px;
+  }
+
+  .setting-item {
+    width: 300px;
+  }
+
+  .setting-input {
+    width: 270px;
+  }
 }
